@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
     title: String,
-    url: String,
-    description: String
+    description: String,
+    steps: Array,
+    rating: Array
 });
 
 module.exports = mongoose.model('post', postSchema);

@@ -1,0 +1,24 @@
+mat-toolbar {
+    padding: 8px 16px;
+    width: 100%;
+}
+
+mat-icon {
+    height: 45px;
+    font-size: 45px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.publish-button {
+    &:hover, &:active {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+#logo {
+    height: 50px;
+}

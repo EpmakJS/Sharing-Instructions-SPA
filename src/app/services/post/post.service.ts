@@ -15,8 +15,8 @@ const httpOptions = {
 })
 export class PostService {
 
-  public result: any;
-  public postsUrl = '/api/posts';
+  protected result: any;
+  private postsUrl = '/api/posts';
 
   constructor(private http: HttpClient) { }
 

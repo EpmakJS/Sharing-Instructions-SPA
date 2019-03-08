@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../services/post/post.service';
 import { Post } from '../../models/Post';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class DetailsComponent implements OnInit {
 
-  protected post: Post;
+  post: Post;
 
   constructor(private postService: PostService, private router: ActivatedRoute) { }
 

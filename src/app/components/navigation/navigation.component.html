@@ -1,8 +1,11 @@
-<div class="row header">
-  <div class="col-sm-12 col-md-3">
-    <a routerLink="/"><img src="/assets/images/logo.svg" id="logo"></a>
-  </div>
-  <div class="col-sm-12 col-md-9">
-    <a routerLink="post" class="btn btn-outline-primary">Post Tutorial</a>
-  </div>
-</div>
+<mat-toolbar color="primary">
+  <span>
+    <a routerLink="/" class="logo-button mat-button" mat-button><img src="/assets/images/logo.svg" id="logo"></a>
+  </span> 
+  <span class="spacer"></span>
+  <span>
+    <a routerLink="post" class="publish-button mat-button" mat-button matTooltip="Create a new post!">
+      <mat-icon class>publish</mat-icon>
+    </a>
+  </span>
+</mat-toolbar>

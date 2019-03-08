@@ -1,0 +1,44 @@
+.flex-spacer {
+    width: 100%;
+}
+
+.posts {
+    padding: 10px 10px;
+}
+
+.mat-card-actions {
+    display: flex;
+}
+
+.mat-card-content {
+    padding-left: 15px;
+    justify-content: space-around;
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+.mat-card-image {
+    max-height: 150px;
+    max-width: 250px;
+}
+
+.mat-card-avatar {
+    background-image: url('/assets/images/kavajnye-kartinki-dlja-srisovki-22.jpg');
+    background-size: cover;
+}
+
+.more-info-btn {
+    min-width: 100px;
+
+    &:hover, &:active {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+star-rating {
+    padding-top: 8px;
+    padding-left: 15px;
+}
