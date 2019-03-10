@@ -4,8 +4,18 @@ const Schema = mongoose.Schema;
 const postSchema = new Schema({
     title: String,
     description: String,
-    steps: Array,
-    rating: Array
+    image: String,
+    steps: [
+        {
+            head: String,
+            body: String,
+            img: [
+                {
+                    src: String
+                }
+            ]
+        }
+    ]
 });
 
 module.exports = mongoose.model('post', postSchema);

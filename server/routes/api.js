@@ -13,7 +13,6 @@ mongoose.connect(db,{useNewUrlParser: true}, function(err) {
 });
 
 router.get('/posts', function(req, res) {
-    console.log('Requesting posts');
     post.find({})
         .exec(function(err, posts) {
             if (err) {
@@ -25,7 +24,6 @@ router.get('/posts', function(req, res) {
 });
 
 router.get('/details/:id', function(req, res) {
-    console.log('Requesting post');
     post.findById(req.params.id)
         .exec(function(err, post) {
             if (err) {
@@ -37,10 +35,12 @@ router.get('/details/:id', function(req, res) {
 });
 
 router.post('/posts', function(req, res) {
-    console.log('Posting a post');
     var newPost = new post();
     newPost.title = req.body.title;
     newPost.description = req.body.description;
+    newPost.image = req.body.image;
+    newPost.steps = req.body.steps;
+
     newPost.save(function(err, addedPost) {
         if (err) {
             console.log('Error inserting the post');

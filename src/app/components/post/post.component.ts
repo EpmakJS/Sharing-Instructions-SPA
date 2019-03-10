@@ -1,9 +1,8 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../services/post/post.service';
 import { Post } from '../../models/Post';
 import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Rating } from 'src/app/models/Rating';
 import { Step } from 'src/app/models/Step';
 import { Image } from 'src/app/models/Image';
 
@@ -50,33 +49,28 @@ export class PostComponent implements OnInit {
     let title: string = null;
     let description: string = null;
     let image: string = null;
-    let rating: Array<Rating>;
 
     if (post) {
       title = post.title;
       description = post.description;
       image = post.image;
-      rating = post.rating;
     } else {
       title = null;
       description = null;
       image = null;
-      rating = null;
     }
 
     const steps: FormArray = new FormArray([]);
 
     this.postForm = this.formBuilder.group({
       title : [title, Validators.compose([Validators.required, Validators.minLength(15), Validators.maxLength(75)])],
-      description : [description, Validators.compose([Validators.required, Validators.minLength(100), Validators.maxLength(500)])],
+      description : [description, Validators.compose([Validators.required, Validators.minLength(50), Validators.maxLength(500)])],
       image : [image, Validators.required],
-      steps,
-      rating : [rating]
+      steps
     });
 
     if (!post) {
       this.addStep();
-      this.addImage(0);
     } else {
       post.steps.forEach((step, stepIndex) => {
         this.addStep(step);
@@ -94,8 +88,8 @@ export class PostComponent implements OnInit {
 
     (this.postForm.controls.steps as FormArray).push(
       new FormGroup ({
-        head : new FormControl(head, Validators.compose([Validators.required, Validators.minLength(15), Validators.maxLength(75)])),
-        body : new FormControl(body, Validators.compose([Validators.required, Validators.minLength(100), Validators.maxLength(500)])),
+        head : new FormControl(head, Validators.compose([Validators.required, Validators.maxLength(75)])),
+        body : new FormControl(body, Validators.compose([Validators.required, Validators.minLength(50), Validators.maxLength(500)])),
         img
       })
     );
@@ -107,7 +101,7 @@ export class PostComponent implements OnInit {
     (((this.postForm.controls.steps as FormArray)
       .controls[stepIndex] as FormGroup).controls.img as FormArray).push(
         new FormGroup({
-          src: new FormControl(src, Validators.required)
+          src: new FormControl(src, Validators.required),
         })
       );
   }
