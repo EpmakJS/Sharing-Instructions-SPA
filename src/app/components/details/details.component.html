@@ -1,14 +1,35 @@
 <div *ngIf="post">
 
-  <div class="row">
-    <div class="col-sm-12 col-md-10">
-      <a routerLink="/" id="back">Back</a>
-      <h1>{{ post.title }}</h1>
-    </div>
-  </div>
+  <div class="container-fluid">
+    <mat-card>
+      <mat-card-header class="row">
+        <mat-card-title class="col-sm-12">
+          <h1>{{ post.title }}</h1>
+        </mat-card-title>
+        <mat-nav-list class="steps-nav col-sm-12" *ngFor="let step of post.steps; let i = index">
+          <a mat-list-item pageScroll href="#{{i}}">Step {{ i+1 }}. {{ step.head }}</a>
+        </mat-nav-list>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="steps" *ngFor="let step of post.steps; let i = index">
+          <div class="row">
+            <div class="col-sm-12">
+              <h3 id="{{i}}">Step {{ i+1 }}. {{ step.head }}</h3>
+            </div>
 
-  <div class="row">
-    <p>{{ post.description }}</p>
+
+            <div class="images col-4" *ngFor="let img of step.img; let j = index">
+              <img mat-card-image class="img-fluid" src="{{ img.src }}" alt="">
+            </div>
+
+
+            <div class="col-sm-12">
+              <p>{{ step.body }}</p>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
 
 </div>

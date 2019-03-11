@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { NgxPageScrollModule } from 'ngx-page-scroll';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,13 +14,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HomeComponent } from './components/home/home.component';
-import { StepsComponent } from './components/steps/steps.component';
 import { DetailsComponent } from './components/details/details.component';
 import { PostComponent } from './components/post/post.component';
 
@@ -27,7 +29,6 @@ import { PostComponent } from './components/post/post.component';
     AppComponent,
     NavigationComponent,
     HomeComponent,
-    StepsComponent,
     DetailsComponent,
     PostComponent
   ],
@@ -37,6 +38,8 @@ import { PostComponent } from './components/post/post.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPageScrollCoreModule.forRoot(),
+    NgxPageScrollModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
@@ -45,7 +48,8 @@ import { PostComponent } from './components/post/post.component';
     MatTooltipModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
