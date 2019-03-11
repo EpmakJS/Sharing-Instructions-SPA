@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { PostService } from '../../services/post/post.service';
 import { Post } from '../../models/Post';
 import { ActivatedRoute } from '@angular/router';
@@ -22,6 +22,18 @@ export class DetailsComponent implements OnInit {
       this.postService.getPost(id)
         .subscribe(res => this.post = res);
     });
+  }
+
+  @HostListener('window:scroll', []) onWindowScroll() {
+    this.scrollFunction();
+  }
+
+  scrollFunction() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+          document.getElementById('toTop').style.display = 'block';
+      } else {
+          document.getElementById('toTop').style.display = 'none';
+      }
   }
 
 }
